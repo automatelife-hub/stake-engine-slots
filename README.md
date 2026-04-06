@@ -209,12 +209,14 @@ Games communicate with Stake Engine's RGS (Remote Gaming Server) via these endpo
 ### Game URL Structure
 
 ```
-https://{TeamName}.cdn.stake-engine.com/{GameID}/{GameVersion}/index.html
+https://puzzled-gaming.cdn.stake-engine.com/{GameID}/{GameVersion}/index.html
   ?sessionID={sessionID}
   &lang={ISO-639-1}
   &device={mobile|desktop}
   &rgs_url={rgsUrl}
 ```
+
+> **Team name:** `puzzled-gaming` — confirmed operator account at https://stake-engine.com/teams/puzzled-gaming
 
 ### Core Endpoints
 
