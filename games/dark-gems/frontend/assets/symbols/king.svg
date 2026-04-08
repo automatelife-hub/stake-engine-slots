@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-king-bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#201030" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#0e0818" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#05030a" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="dg-king-letter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffd878"/>
+      <stop offset="40%" stop-color="#d08820"/>
+      <stop offset="100%" stop-color="#704000"/>
+    </linearGradient>
+    <radialGradient id="dg-king-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#cc8800" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#301000" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dg-king-shadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#cc8800" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Glow -->
+  <circle cx="100" cy="100" r="88" fill="url(#dg-king-glow)" opacity="0.6"/>
+
+  <!-- Card face -->
+  <rect x="22" y="18" width="156" height="164" rx="14" fill="url(#dg-king-bg)" stroke="#a06020" stroke-width="2"/>
+  <rect x="30" y="26" width="140" height="148" rx="10" fill="none" stroke="#804010" stroke-width="1" opacity="0.6"/>
+
+  <!-- Crown ornament at top -->
+  <polygon points="72,34 80,50 90,38 100,54 110,38 120,50 128,34 132,52 68,52"
+    fill="#c87818" stroke="#a06010" stroke-width="0.8" opacity="0.85"/>
+  <!-- Crown jewels -->
+  <circle cx="100" cy="36" r="4" fill="#ff4060" opacity="0.9"/>
+  <circle cx="83" cy="40" r="3" fill="#60c8ff" opacity="0.85"/>
+  <circle cx="117" cy="40" r="3" fill="#60ff90" opacity="0.85"/>
+
+  <!-- Corner decorations -->
+  <polygon points="36,62 46,62 46,72 36,72" fill="#a06018" opacity="0.5"/>
+  <polygon points="164,62 154,62 154,72 164,72" fill="#a06018" opacity="0.5"/>
+  <polygon points="36,148 46,148 46,158 36,158" fill="#804010" opacity="0.4"/>
+  <polygon points="164,148 154,148 154,158 164,158" fill="#804010" opacity="0.4"/>
+
+  <!-- Large "K" - gothic serif -->
+  <text x="102" y="148" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="100" font-weight="bold"
+    fill="url(#dg-king-letter)"
+    filter="url(#dg-king-shadow)"
+    letter-spacing="-4">K</text>
+
+  <!-- Small corner "K" -->
+  <text x="42" y="75" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="18" font-weight="bold" fill="#c87020" opacity="0.9">K</text>
+  <text x="158" y="182" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="18" font-weight="bold" fill="#a05010" opacity="0.8"
+    transform="rotate(180 158 174)">K</text>
+
+  <!-- Scepter gem pip -->
+  <polygon points="100,164 106,170 100,176 94,170" fill="#ffcc44" stroke="#e09820" stroke-width="1" opacity="0.8"/>
+
+  <!-- Bottom border line -->
+  <path d="M42,158 L158,158" stroke="#804010" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Sparkle flecks -->
+  <circle cx="62" cy="100" r="1.5" fill="#ffcc44" opacity="0.55"/>
+  <circle cx="138" cy="96" r="1.5" fill="#ffbb22" opacity="0.5"/>
+  <circle cx="70" cy="152" r="1.5" fill="#cc8810" opacity="0.45"/>
+  <circle cx="130" cy="148" r="1.5" fill="#dd9920" opacity="0.45"/>
+</svg>

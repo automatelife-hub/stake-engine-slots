@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-wild-burst" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffee44" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#ff8800" stop-opacity="1"/>
+      <stop offset="80%" stop-color="#cc2200" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#660000" stop-opacity="0.9"/>
+    </radialGradient>
+    <radialGradient id="dg-wild-outer-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffcc00" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff4400" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dg-wild-glow-filter">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="dg-wild-badge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe840"/>
+      <stop offset="50%" stop-color="#ff9900"/>
+      <stop offset="100%" stop-color="#cc4400"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer glow ring -->
+  <circle cx="100" cy="100" r="90" fill="url(#dg-wild-outer-glow)" opacity="0.5"/>
+
+  <!-- Burst rays (12-point starburst) -->
+  <polygon points="100,10 105,85 100,92 95,85" fill="#ffdd00" opacity="0.9"/>
+  <polygon points="157,43 110,90 106,97 100,93 107,88" fill="#ffcc00" opacity="0.8"
+    transform="rotate(30 100 100)"/>
+  <polygon points="190,100 115,105 107,100 115,95" fill="#ffbb00" opacity="0.75"
+    transform="rotate(60 100 100)"/>
+  <polygon points="157,157 110,110 107,103 100,107 103,97" fill="#ff9900" opacity="0.7"
+    transform="rotate(90 100 100)"/>
+  <polygon points="100,190 95,115 100,108 105,115" fill="#ff8800" opacity="0.7"
+    transform="rotate(120 100 100)"/>
+  <polygon points="43,157 90,110 94,103 100,107" fill="#ff6600" opacity="0.65"
+    transform="rotate(150 100 100)"/>
+  <!-- Full starburst using transform -->
+  <g filter="url(#dg-wild-glow-filter)">
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ffee00" opacity="0.85"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ffee00" opacity="0.85" transform="rotate(30 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ffcc00" opacity="0.75" transform="rotate(60 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ffaa00" opacity="0.7" transform="rotate(90 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ff8800" opacity="0.65" transform="rotate(120 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ff6600" opacity="0.6" transform="rotate(150 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ff4400" opacity="0.6" transform="rotate(180 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ff6600" opacity="0.6" transform="rotate(210 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ff8800" opacity="0.65" transform="rotate(240 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ffaa00" opacity="0.7" transform="rotate(270 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ffcc00" opacity="0.75" transform="rotate(300 100 100)"/>
+    <polygon points="100,18 106,88 100,95 94,88" fill="#ffee00" opacity="0.8" transform="rotate(330 100 100)"/>
+  </g>
+
+  <!-- Central gem burst circle -->
+  <circle cx="100" cy="100" r="44" fill="url(#dg-wild-burst)" stroke="#ff8800" stroke-width="2"/>
+
+  <!-- WILD badge -->
+  <rect x="50" y="82" width="100" height="36" rx="8" fill="url(#dg-wild-badge)" stroke="#ffcc44" stroke-width="2"/>
+  <rect x="52" y="84" width="96" height="32" rx="7" fill="none" stroke="#fff8cc" stroke-width="1" opacity="0.5"/>
+  <text x="100" y="107" text-anchor="middle" font-family="Arial Black, Impact, sans-serif"
+    font-size="22" font-weight="900" fill="#1a0000" letter-spacing="3">WILD</text>
+  <text x="100" y="107" text-anchor="middle" font-family="Arial Black, Impact, sans-serif"
+    font-size="22" font-weight="900" fill="#fff0a0" letter-spacing="3" opacity="0.7">WILD</text>
+
+  <!-- Sparkle dots -->
+  <circle cx="36" cy="40" r="3" fill="#ffee44" opacity="0.9"/>
+  <circle cx="164" cy="40" r="2.5" fill="#ffdd22" opacity="0.85"/>
+  <circle cx="28" cy="110" r="2" fill="#ffcc00" opacity="0.7"/>
+  <circle cx="172" cy="110" r="2.5" fill="#ffbb00" opacity="0.75"/>
+  <circle cx="54" cy="170" r="2" fill="#ff9900" opacity="0.7"/>
+  <circle cx="146" cy="168" r="2" fill="#ff8800" opacity="0.65"/>
+</svg>

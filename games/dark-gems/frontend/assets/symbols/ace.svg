@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-ace-bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#2a1240" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#110820" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#06030e" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="dg-ace-letter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8c0ff"/>
+      <stop offset="40%" stop-color="#b060e8"/>
+      <stop offset="100%" stop-color="#6010a0"/>
+    </linearGradient>
+    <radialGradient id="dg-ace-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9930dd" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#220040" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dg-ace-shadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#8820cc" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <!-- Glow -->
+  <circle cx="100" cy="100" r="88" fill="url(#dg-ace-glow)" opacity="0.6"/>
+
+  <!-- Card face shape -->
+  <rect x="22" y="18" width="156" height="164" rx="14" fill="url(#dg-ace-bg)" stroke="#7820c8" stroke-width="2"/>
+  <!-- Inner border detail -->
+  <rect x="30" y="26" width="140" height="148" rx="10" fill="none" stroke="#5810a0" stroke-width="1" opacity="0.6"/>
+  <!-- Corner gem ornaments -->
+  <polygon points="36,32 46,32 46,42 36,42" fill="#8828d0" opacity="0.5"/>
+  <polygon points="164,32 154,32 154,42 164,42" fill="#8828d0" opacity="0.5"/>
+  <polygon points="36,168 46,168 46,158 36,158" fill="#6010a0" opacity="0.4"/>
+  <polygon points="164,168 154,168 154,158 164,158" fill="#6010a0" opacity="0.4"/>
+
+  <!-- Gothic ornamental border lines -->
+  <path d="M42,38 L158,38" stroke="#7820c0" stroke-width="0.8" opacity="0.5"/>
+  <path d="M42,162 L158,162" stroke="#5810a0" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Large "A" - gothic serif style -->
+  <text x="100" y="135" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="110" font-weight="bold"
+    fill="url(#dg-ace-letter)"
+    filter="url(#dg-ace-shadow)"
+    letter-spacing="-4">A</text>
+
+  <!-- Small corner "A" markers -->
+  <text x="42" y="58" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="20" font-weight="bold" fill="#9828d8" opacity="0.9">A</text>
+  <text x="158" y="178" text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="20" font-weight="bold" fill="#7010b0" opacity="0.8"
+    transform="rotate(180 158 170)">A</text>
+
+  <!-- Gem pip at center of A crossbar area -->
+  <polygon points="100,60 106,68 100,76 94,68" fill="#cc44ff" stroke="#aa20ee" stroke-width="1" opacity="0.85"/>
+
+  <!-- Sparkle flecks -->
+  <circle cx="60" cy="90" r="1.5" fill="#cc88ff" opacity="0.6"/>
+  <circle cx="140" cy="80" r="1.5" fill="#bb66ff" opacity="0.55"/>
+  <circle cx="68" cy="150" r="1.5" fill="#9944cc" opacity="0.5"/>
+  <circle cx="132" cy="148" r="1.5" fill="#aa44cc" opacity="0.5"/>
+</svg>

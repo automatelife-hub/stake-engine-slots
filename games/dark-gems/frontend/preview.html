@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Gems — Asset Preview / Visual QA</title>
+  <link rel="stylesheet" href="assets/animations/gem-animations.css"/>
+  <style>
+    :root {
+      --bg-deep: #03010a;
+      --bg-panel: #100820;
+      --border-crystal: #6030b0;
+      --text-primary: #e8c0ff;
+      --text-dim: #7050a0;
+      --gold: #ffd040;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: "Arial", sans-serif;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    h1 {
+      font-family: "Georgia", serif;
+      font-size: 2.2rem;
+      text-align: center;
+      color: #cc88ff;
+      text-shadow: 0 0 20px #8820dd, 0 0 8px #aa44ff;
+      letter-spacing: 6px;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+    }
+
+    /* ---- Section headers ---- */
+    h2 {
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--border-crystal);
+      border-bottom: 1px solid #2a1848;
+      padding-bottom: 6px;
+      margin: 32px 0 16px;
+    }
+
+    /* ---- Symbol grid ---- */
+    .symbol-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    .symbol-card {
+      background: var(--bg-panel);
+      border: 1px solid #2a1840;
+      border-radius: 10px;
+      padding: 12px 16px;
+      text-align: center;
+      width: 160px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .symbol-card:hover { border-color: var(--border-crystal); }
+
+    .symbol-card img {
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin: 0 auto 8px;
+    }
+
+    .symbol-card .sym-id {
+      font-family: "Arial Black", Impact, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .symbol-card .sym-name {
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .symbol-card .sym-pays {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+    .sym-special-tag {
+      display: inline-block;
+      background: #2a104a;
+      border: 1px solid #6020a0;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      color: #cc66ff;
+      margin-top: 4px;
+    }
+
+    /* ---- Animation demo controls ---- */
+    .anim-controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: #1a0830;
+      border: 1px solid var(--border-crystal);
+      border-radius: 6px;
+      color: #cc88ff;
+      font-family: "Arial Black", sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .btn:hover { background: #2a1048; border-color: #aa66ff; }
+    .btn:active { background: #3a1860; }
+
+    /* ---- Animation demo grid ---- */
+    .anim-demo-grid {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .anim-demo-slot {
+      position: relative;
+      width: 110px;
+      height: 110px;
+    }
+
+    .anim-demo-slot img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ---- UI panels ---- */
+    .ui-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .ui-card {
+      background: var(--bg-panel);
+      border: 1px solid #2a1840;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .ui-card img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .ui-card .ui-label {
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      margin-top: 8px;
+      text-transform: uppercase;
+    }
+
+    /* ---- Background preview ---- */
+    .bg-preview {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #2a1840;
+    }
+
+    .bg-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ---- Reel preview strip ---- */
+    .reel-preview {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .reel-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ---- Checker ---- */
+    .qa-checks {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #160c28;
+      font-size: 0.82rem;
+      color: #c0a0e0;
+    }
+
+    .check-item .check-icon {
+      font-size: 1.1rem;
+      min-width: 24px;
+    }
+
+    .check-pass { color: #44dd88; }
+    .check-warn { color: #ffaa22; }
+    .check-info { color: #4488ff; }
+
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 1px solid #160c28;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>DARK GEMS</h1>
+<p class="subtitle">Asset Preview &amp; Visual QA — Darkside Gaming / Stake Engine</p>
+
+<!-- ==================== SYMBOLS ==================== -->
+<h2>Symbol Assets (10 symbols)</h2>
+<div class="symbol-grid">
+
+  <div class="symbol-card">
+    <img src="assets/symbols/wild.svg" alt="Wild" class="dg-symbol dg-symbol--wild dg-anim--idle" id="sym-wild"/>
+    <div class="sym-id">W</div>
+    <div class="sym-name">Wild</div>
+    <div class="sym-pays"><span class="sym-special-tag">WILD SUBSTITUTE</span></div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/scatter.svg" alt="Scatter" class="dg-symbol dg-symbol--scatter dg-anim--idle" id="sym-scatter"/>
+    <div class="sym-id">S</div>
+    <div class="sym-name">Scatter</div>
+    <div class="sym-pays"><span class="sym-special-tag">FREE SPINS TRIGGER</span></div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/diamond.svg" alt="Diamond" class="dg-symbol dg-symbol--diamond dg-anim--idle" id="sym-h1"/>
+    <div class="sym-id">H1</div>
+    <div class="sym-name">Diamond</div>
+    <div class="sym-pays">3× = 5× | 4× = 20× | 5× = 50×</div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/ruby.svg" alt="Ruby" class="dg-symbol dg-symbol--ruby dg-anim--idle" id="sym-h2"/>
+    <div class="sym-id">H2</div>
+    <div class="sym-name">Ruby</div>
+    <div class="sym-pays">3× = 3× | 4× = 10× | 5× = 30×</div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/emerald.svg" alt="Emerald" class="dg-symbol dg-symbol--emerald dg-anim--idle" id="sym-h3"/>
+    <div class="sym-id">H3</div>
+    <div class="sym-name">Emerald</div>
+    <div class="sym-pays">3× = 2× | 4× = 6× | 5× = 20×</div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/sapphire.svg" alt="Sapphire" class="dg-symbol dg-symbol--sapphire dg-anim--idle" id="sym-h4"/>
+    <div class="sym-id">H4</div>
+    <div class="sym-name">Sapphire</div>
+    <div class="sym-pays">3× = 1.5× | 4× = 4× | 5× = 12×</div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/amethyst.svg" alt="Amethyst" class="dg-symbol dg-symbol--amethyst dg-anim--idle" id="sym-l1"/>
+    <div class="sym-id">L1</div>
+    <div class="sym-name">Amethyst</div>
+    <div class="sym-pays">3× = 0.8× | 4× = 2× | 5× = 8×</div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/topaz.svg" alt="Topaz" class="dg-symbol dg-symbol--topaz dg-anim--idle" id="sym-l2"/>
+    <div class="sym-id">L2</div>
+    <div class="sym-name">Topaz</div>
+    <div class="sym-pays">3× = 0.5× | 4× = 1.5× | 5× = 5×</div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/ace.svg" alt="Ace" class="dg-symbol dg-symbol--ace dg-anim--idle" id="sym-l3"/>
+    <div class="sym-id">L3</div>
+    <div class="sym-name">Ace</div>
+    <div class="sym-pays">3× = 0.3× | 4× = 1.0× | 5× = 3×</div>
+  </div>
+
+  <div class="symbol-card">
+    <img src="assets/symbols/king.svg" alt="King" class="dg-symbol dg-symbol--king dg-anim--idle" id="sym-l4"/>
+    <div class="sym-id">L4</div>
+    <div class="sym-name">King</div>
+    <div class="sym-pays">3× = 0.2× | 4× = 0.7× | 5× = 2×</div>
+  </div>
+
+</div>
+
+<!-- ==================== ANIMATION TESTS ==================== -->
+<h2>Animation Tests</h2>
+<div class="anim-controls">
+  <button class="btn" onclick="triggerWinBurst()">▶ WIN BURST (all)</button>
+  <button class="btn" onclick="triggerIdleAll()">◎ IDLE SHIMMER</button>
+  <button class="btn" onclick="triggerDimmed()">◑ DIM NON-WINNERS</button>
+  <button class="btn" onclick="stopAll()">■ STOP ALL</button>
+  <button class="btn" onclick="showFreeSpinIntro()">✦ FREE SPIN INTRO</button>
+</div>
+
+<div class="anim-demo-grid">
+  <div class="anim-demo-slot">
+    <img src="assets/symbols/diamond.svg" alt="Diamond" class="dg-symbol dg-symbol--diamond" id="demo-diamond"/>
+    <div class="dg-win-ring" id="ring-diamond" style="display:none;"></div>
+  </div>
+  <div class="anim-demo-slot">
+    <img src="assets/symbols/ruby.svg" alt="Ruby" class="dg-symbol dg-symbol--ruby" id="demo-ruby"/>
+  </div>
+  <div class="anim-demo-slot">
+    <img src="assets/symbols/emerald.svg" alt="Emerald" class="dg-symbol dg-symbol--emerald" id="demo-emerald"/>
+  </div>
+  <div class="anim-demo-slot">
+    <img src="assets/symbols/wild.svg" alt="Wild" class="dg-symbol dg-symbol--wild" id="demo-wild"/>
+  </div>
+  <div class="anim-demo-slot">
+    <img src="assets/symbols/scatter.svg" alt="Scatter" class="dg-symbol dg-symbol--scatter" id="demo-scatter"/>
+  </div>
+</div>
+
+<!-- Free spin overlay (hidden) -->
+<div class="dg-freespin-overlay" id="freespin-overlay" style="display:none;">
+  <div class="dg-freespin-title">FREE SPINS</div>
+  <div class="dg-freespin-subtitle">8 GAMES AWARDED</div>
+</div>
+
+<!-- ==================== UI ELEMENTS ==================== -->
+<h2>UI / HUD Elements</h2>
+<div class="ui-grid">
+  <div class="ui-card">
+    <img src="assets/ui/win-display.svg" alt="Win Display" style="width:280px;"/>
+    <div class="ui-label">Win Display Panel</div>
+  </div>
+  <div class="ui-card">
+    <img src="assets/ui/free-spins-counter.svg" alt="Free Spins Counter" style="width:200px;"/>
+    <div class="ui-label">Free Spins Counter</div>
+  </div>
+  <div class="ui-card">
+    <img src="assets/ui/multiplier-badge.svg" alt="Multiplier Badge" style="width:80px;"/>
+    <div class="ui-label">Multiplier Badge</div>
+  </div>
+</div>
+
+<!-- ==================== REEL FRAME ==================== -->
+<h2>Reel Frame</h2>
+<div class="reel-preview">
+  <img src="assets/ui/reel-frame.svg" alt="Reel Frame"/>
+</div>
+
+<!-- ==================== BACKGROUND ==================== -->
+<h2>Game Background (Cave / Mine Shaft)</h2>
+<div class="bg-preview">
+  <img src="assets/ui/background.svg" alt="Background"/>
+</div>
+
+<!-- ==================== QA CHECKLIST ==================== -->
+<h2>QA Checklist</h2>
+<div class="qa-checks">
+  <div class="check-item"><span class="check-icon check-pass">✓</span> 10 symbols present (W, S, H1–H4, L1–L2, L3, L4)</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> All symbols are original SVG vector art — no licensed IP</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> No Stake™ branding, no child characters, no minors imagery</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> Idle shimmer animation on all symbols (CSS)</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> Win burst animation with ring expand (CSS)</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> Free spin intro overlay animation (CSS)</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> Game background (dark cave / mine shaft theme)</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> Reel frame with crystal border and stone pillars</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> Win display, free spins counter, multiplier badge</div>
+  <div class="check-item"><span class="check-icon check-pass">✓</span> Asset manifest JSON with web-sdk atlas path mappings</div>
+  <div class="check-item"><span class="check-icon check-warn">⚠</span> Spine 2D .skel/.atlas: deferred — SVG + CSS animations used as fallback per spec</div>
+  <div class="check-item"><span class="check-icon check-info">ℹ</span> PNG sprite export: run <code>scripts/export-sprites.js</code> to rasterise at 2× (400×400)</div>
+  <div class="check-item"><span class="check-icon check-info">ℹ</span> Build integration: copy <code>frontend/assets/</code> into <code>apps/dark-gems/public/assets/</code></div>
+</div>
+
+<footer>
+  Dark Gems · Darkside Gaming (puzzled-gaming) · Stake Engine Platform · game-id: dark-gems
+</footer>
+
+<script>
+  const demoIds = ['diamond', 'ruby', 'emerald', 'wild', 'scatter'];
+
+  function clearAll(el) {
+    el.classList.remove('dg-anim--idle', 'dg-anim--win-burst', 'dg-anim--dimmed', 'dg-anim--none');
+  }
+
+  function triggerIdleAll() {
+    demoIds.forEach(id => {
+      const el = document.getElementById('demo-' + id);
+      clearAll(el);
+      el.classList.add('dg-anim--idle');
+    });
+  }
+
+  function triggerWinBurst() {
+    demoIds.forEach(id => {
+      const el = document.getElementById('demo-' + id);
+      clearAll(el);
+      void el.offsetWidth; // reflow to restart animation
+      el.classList.add('dg-anim--win-burst');
+      // Show ring on diamond demo
+      if (id === 'diamond') {
+        const ring = document.getElementById('ring-diamond');
+        ring.style.display = 'block';
+        ring.style.animation = 'none';
+        void ring.offsetWidth;
+        ring.style.animation = '';
+        setTimeout(() => { ring.style.display = 'none'; }, 950);
+      }
+      setTimeout(() => { el.classList.remove('dg-anim--win-burst'); }, 1200);
+    });
+  }
+
+  function triggerDimmed() {
+    demoIds.forEach((id, i) => {
+      const el = document.getElementById('demo-' + id);
+      clearAll(el);
+      if (i !== 0) { // dim all except first
+        el.classList.add('dg-anim--dimmed');
+      } else {
+        el.classList.add('dg-anim--idle');
+      }
+    });
+    setTimeout(triggerIdleAll, 3000);
+  }
+
+  function stopAll() {
+    demoIds.forEach(id => {
+      const el = document.getElementById('demo-' + id);
+      clearAll(el);
+      el.classList.add('dg-anim--none');
+    });
+  }
+
+  function showFreeSpinIntro() {
+    const overlay = document.getElementById('freespin-overlay');
+    overlay.style.display = 'flex';
+    overlay.style.animation = 'none';
+    void overlay.offsetWidth;
+    overlay.style.animation = '';
+    // Remove after animation completes
+    setTimeout(() => {
+      overlay.style.display = 'none';
+    }, 3500);
+  }
+
+  // Start idle on load
+  window.addEventListener('load', triggerIdleAll);
+</script>
+</body>
+</html>

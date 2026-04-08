@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-am-core" cx="42%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#e8b0ff" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#9820d0" stop-opacity="1"/>
+      <stop offset="65%" stop-color="#600090" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#280048" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="dg-am-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#cc44ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#400060" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dg-am-facet-l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c060e8" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#400070" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Glow -->
+  <ellipse cx="100" cy="100" rx="84" ry="84" fill="url(#dg-am-glow)" opacity="0.45"/>
+
+  <!-- Teardrop / pear cut amethyst -->
+  <!-- Main body -->
+  <path d="M100,20 C128,20 158,50 158,85 C158,120 134,155 100,178 C66,155 42,120 42,85 C42,50 72,20 100,20 Z"
+    fill="url(#dg-am-core)" stroke="#8010c0" stroke-width="1.5"/>
+
+  <!-- Crown top facets -->
+  <path d="M100,20 L118,52 L100,60 L82,52 Z" fill="#d070f8" stroke="#a020e0" stroke-width="0.5" opacity="0.8"/>
+  <!-- Crown upper-right -->
+  <path d="M100,20 C128,20 158,50 158,85 L132,82 L118,52 Z" fill="#a030d8" stroke="#8010c0" stroke-width="0.5" opacity="0.75"/>
+  <!-- Crown upper-left -->
+  <path d="M100,20 C72,20 42,50 42,85 L68,82 L82,52 Z" fill="#c050e8" stroke="#a020d0" stroke-width="0.5" opacity="0.75"/>
+  <!-- Right side -->
+  <path d="M158,85 C158,120 134,155 100,178 L100,148 L132,82 Z" fill="#5a0088" stroke="#400070" stroke-width="0.5" opacity="0.85"/>
+  <!-- Left side -->
+  <path d="M42,85 C42,120 66,155 100,178 L100,148 L68,82 Z" fill="#700098" stroke="#500080" stroke-width="0.5" opacity="0.85"/>
+  <!-- Mid-facet table -->
+  <path d="M100,60 L132,82 L100,148 L68,82 Z" fill="#8818c8" stroke="#6010a8" stroke-width="0.8" opacity="0.7"/>
+  <!-- Inner upper -->
+  <ellipse cx="100" cy="85" rx="26" ry="22" fill="#9020d8" stroke="#7010c0" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Specular -->
+  <ellipse cx="86" cy="62" rx="16" ry="7" fill="white" opacity="0.38" transform="rotate(-18 86 62)"/>
+  <ellipse cx="79" cy="54" rx="6" ry="3" fill="white" opacity="0.6"/>
+  <ellipse cx="100" cy="44" rx="4" ry="2" fill="white" opacity="0.5"/>
+</svg>

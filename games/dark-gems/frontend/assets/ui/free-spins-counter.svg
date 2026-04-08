@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 140" width="260" height="140">
+  <defs>
+    <linearGradient id="fs-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#180828"/>
+      <stop offset="100%" stop-color="#080210"/>
+    </linearGradient>
+    <linearGradient id="fs-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6030ff"/>
+      <stop offset="50%" stop-color="#aa55ff"/>
+      <stop offset="100%" stop-color="#3010c0"/>
+    </linearGradient>
+    <linearGradient id="fs-count" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff8c0"/>
+      <stop offset="50%" stop-color="#ffcc30"/>
+      <stop offset="100%" stop-color="#cc7000"/>
+    </linearGradient>
+    <filter id="fs-glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Panel -->
+  <rect x="4" y="4" width="252" height="132" rx="12" fill="url(#fs-bg)" stroke="url(#fs-border)" stroke-width="2.5"/>
+  <rect x="8" y="8" width="244" height="124" rx="9" fill="none" stroke="#5020c8" stroke-width="1" opacity="0.5"/>
+
+  <!-- "FREE SPINS" label -->
+  <text x="130" y="42" text-anchor="middle"
+    font-family="Arial Black, Impact, sans-serif"
+    font-size="16" font-weight="900" letter-spacing="3"
+    fill="#bb88ff" filter="url(#fs-glow)">FREE SPINS</text>
+
+  <!-- Count display (placeholder - runtime) -->
+  <text x="130" y="106" text-anchor="middle"
+    font-family="Arial Black, Impact, sans-serif"
+    font-size="60" font-weight="900"
+    fill="url(#fs-count)" filter="url(#fs-glow)">8</text>
+
+  <!-- Sub-label "REMAINING" -->
+  <text x="130" y="128" text-anchor="middle"
+    font-family="Arial, sans-serif"
+    font-size="11" letter-spacing="2"
+    fill="#8850cc" opacity="0.9">REMAINING</text>
+
+  <!-- Gem decoration -->
+  <polygon points="20,14 26,24 20,32 14,24" fill="#8840e0" stroke="#6020b8" stroke-width="0.8" opacity="0.8" filter="url(#fs-glow)"/>
+  <polygon points="240,14 246,24 240,32 234,24" fill="#8840e0" stroke="#6020b8" stroke-width="0.8" opacity="0.8" filter="url(fs-glow)"/>
+</svg>

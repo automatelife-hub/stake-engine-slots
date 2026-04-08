@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-sc-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#220044" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Mini gem gradients -->
+    <radialGradient id="dg-sc-d" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#c8f0ff"/><stop offset="100%" stop-color="#0050a0"/>
+    </radialGradient>
+    <radialGradient id="dg-sc-r" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#ff8090"/><stop offset="100%" stop-color="#880010"/>
+    </radialGradient>
+    <radialGradient id="dg-sc-e" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#80ffb0"/><stop offset="100%" stop-color="#006030"/>
+    </radialGradient>
+    <radialGradient id="dg-sc-s" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#a0c8ff"/><stop offset="100%" stop-color="#001880"/>
+    </radialGradient>
+    <radialGradient id="dg-sc-a" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#e890ff"/><stop offset="100%" stop-color="#500090"/>
+    </radialGradient>
+    <linearGradient id="dg-sc-badge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ccaaff"/>
+      <stop offset="50%" stop-color="#8800cc"/>
+      <stop offset="100%" stop-color="#440066"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer glow -->
+  <circle cx="100" cy="100" r="90" fill="url(#dg-sc-glow)" opacity="0.5"/>
+
+  <!-- Multi-gem cluster layout:
+       Center: Diamond (large)
+       TL: Emerald, TR: Ruby, BL: Sapphire, BR: Amethyst -->
+
+  <!-- Center diamond (large) -->
+  <g transform="translate(100 90) scale(0.72)">
+    <polygon points="0,-55 40,-18 40,14 0,46 -40,14 -40,-18" fill="url(#dg-sc-d)" stroke="#4090e0" stroke-width="1.2"/>
+    <polygon points="0,-55 18,-28 0,-22 -18,-28" fill="#d8f4ff" opacity="0.7"/>
+    <polygon points="0,-55 40,-18 18,-28" fill="#90c8f8" opacity="0.6"/>
+    <polygon points="0,-55 -40,-18 -18,-28" fill="#b8e0ff" opacity="0.65"/>
+    <polygon points="40,14 0,46 -40,14 0,22" fill="#003880" opacity="0.8"/>
+    <ellipse cx="-8" cy="-35" rx="10" ry="4" fill="white" opacity="0.45" transform="rotate(-20 -8 -35)"/>
+  </g>
+
+  <!-- Top-left emerald -->
+  <g transform="translate(50 54) scale(0.45)">
+    <polygon points="-48,-44 48,-44 64,-28 64,28 48,44 -48,44 -64,28 -64,-28"
+      fill="url(#dg-sc-e)" stroke="#009030" stroke-width="1.5"/>
+    <polygon points="-32,-28 32,-28 44,-16 44,16 32,28 -32,28 -44,16 -44,-16"
+      fill="#00a840" stroke="#008028" stroke-width="0.5" opacity="0.6"/>
+    <ellipse cx="-8" cy="-28" rx="14" ry="5" fill="white" opacity="0.45" transform="rotate(-10 -8 -28)"/>
+  </g>
+
+  <!-- Top-right ruby -->
+  <g transform="translate(150 54) scale(0.45)">
+    <polygon points="-44,-50 44,-50 60,-34 60,34 44,50 -44,50 -60,34 -60,-34"
+      fill="url(#dg-sc-r)" stroke="#cc0020" stroke-width="1.5"/>
+    <polygon points="-28,-34 28,-34 40,-22 40,22 28,34 -28,34 -40,22 -40,-22"
+      fill="#cc0828" stroke="#aa0018" stroke-width="0.5" opacity="0.65"/>
+    <ellipse cx="-8" cy="-30" rx="14" ry="5" fill="white" opacity="0.4" transform="rotate(-15 -8 -30)"/>
+  </g>
+
+  <!-- Bottom-left sapphire -->
+  <g transform="translate(50 148) scale(0.44)">
+    <circle r="56" fill="url(#dg-sc-s)" stroke="#2040c0" stroke-width="1.5"/>
+    <circle r="40" fill="none" stroke="#4060e0" stroke-width="1" opacity="0.5"/>
+    <ellipse cx="-10" cy="-28" rx="14" ry="5" fill="white" opacity="0.4" transform="rotate(-20 -10 -28)"/>
+  </g>
+
+  <!-- Bottom-right amethyst -->
+  <g transform="translate(150 148) scale(0.44)">
+    <path d="M0,-56 C28,-56 56,-28 56,12 C56,44 28,56 0,56 C-28,56 -56,44 -56,12 C-56,-28 -28,-56 0,-56 Z"
+      fill="url(#dg-sc-a)" stroke="#8010c0" stroke-width="1.5"/>
+    <path d="M0,-40 C18,-40 38,-18 38,8 C38,28 20,40 0,40 C-20,40 -38,28 -38,8 C-38,-18 -18,-40 0,-40 Z"
+      fill="none" stroke="#b040e8" stroke-width="1" opacity="0.5"/>
+    <ellipse cx="-8" cy="-28" rx="12" ry="5" fill="white" opacity="0.4" transform="rotate(-15 -8 -28)"/>
+  </g>
+
+  <!-- SCATTER badge at bottom -->
+  <rect x="38" y="162" width="124" height="26" rx="6" fill="url(#dg-sc-badge)" stroke="#cc88ff" stroke-width="1.5"/>
+  <text x="100" y="180" text-anchor="middle" font-family="Arial Black, Impact, sans-serif"
+    font-size="14" font-weight="900" fill="#110022" letter-spacing="2">SCATTER</text>
+  <text x="100" y="180" text-anchor="middle" font-family="Arial Black, Impact, sans-serif"
+    font-size="14" font-weight="900" fill="#fff0ff" letter-spacing="2" opacity="0.6">SCATTER</text>
+
+  <!-- Sparkle accents -->
+  <circle cx="100" cy="100" r="3" fill="white" opacity="0.8"/>
+  <circle cx="100" cy="16" r="2.5" fill="#ddaaff" opacity="0.8"/>
+  <circle cx="28" cy="60" r="1.5" fill="#88ffcc" opacity="0.7"/>
+  <circle cx="172" cy="60" r="1.5" fill="#ff8890" opacity="0.7"/>
+</svg>
