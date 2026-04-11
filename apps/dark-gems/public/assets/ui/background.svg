@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <!-- Deep cave sky -->
+    <linearGradient id="bg-cave-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#010208"/>
+      <stop offset="30%" stop-color="#05031a"/>
+      <stop offset="70%" stop-color="#0a0520"/>
+      <stop offset="100%" stop-color="#150828"/>
+    </linearGradient>
+    <!-- Rock texture gradient -->
+    <linearGradient id="bg-rock-l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1220"/>
+      <stop offset="50%" stop-color="#0d0818"/>
+      <stop offset="100%" stop-color="#080410"/>
+    </linearGradient>
+    <linearGradient id="bg-rock-r" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#181020"/>
+      <stop offset="50%" stop-color="#0c0616"/>
+      <stop offset="100%" stop-color="#07030f"/>
+    </linearGradient>
+    <!-- Gem vein glow gradients -->
+    <radialGradient id="bg-vein-blue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2060ff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0020a0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg-vein-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9020dd" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#400060" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg-vein-green" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00cc50" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#004020" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg-vein-red" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#cc1020" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#440008" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Floor gradient -->
+    <linearGradient id="bg-floor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0518"/>
+      <stop offset="100%" stop-color="#020108"/>
+    </linearGradient>
+    <!-- Atmospheric depth fog -->
+    <radialGradient id="bg-fog" cx="50%" cy="60%" r="55%">
+      <stop offset="0%" stop-color="#180830" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#0a0420" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#050210" stop-opacity="0.7"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sky / deep cave -->
+  <rect width="1920" height="1080" fill="url(#bg-cave-sky)"/>
+
+  <!-- ============ LEFT ROCK WALL ============ -->
+  <path d="M0,0 L380,0 L340,80 L380,160 L320,240 L360,320 L300,400 L340,480 L280,560 L320,640 L260,720 L300,800 L0,800 Z"
+    fill="url(#bg-rock-l)" stroke="#1a1028" stroke-width="2"/>
+  <!-- Rock strata lines left -->
+  <path d="M20,120 C80,115 160,125 200,118 C240,112 300,122 340,116" stroke="#221530" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M20,240 C90,235 180,242 220,236 C280,230 320,238 340,232" stroke="#1a1028" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <path d="M20,380 C70,374 140,382 200,377 C260,371 310,378 340,373" stroke="#200c38" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <path d="M20,500 C80,495 160,504 220,498 C280,492 320,500" stroke="#180c30" stroke-width="1" fill="none" opacity="0.45"/>
+  <path d="M20,620 C90,614 170,622 230,616 C290,610 330,618" stroke="#140a28" stroke-width="1" fill="none" opacity="0.4"/>
+
+  <!-- Gem veins left wall -->
+  <ellipse cx="80" cy="200" rx="18" ry="5" fill="url(#bg-vein-blue)" transform="rotate(-30 80 200)" opacity="0.9"/>
+  <ellipse cx="100" cy="210" rx="8" ry="3" fill="#1840c0" opacity="0.7"/>
+  <ellipse cx="180" cy="380" rx="22" ry="6" fill="url(#bg-vein-purple)" transform="rotate(20 180 380)" opacity="0.85"/>
+  <ellipse cx="200" cy="390" rx="9" ry="3" fill="#6010a0" opacity="0.65"/>
+  <ellipse cx="60" cy="520" rx="16" ry="5" fill="url(#bg-vein-green)" transform="rotate(-15 60 520)" opacity="0.8"/>
+  <ellipse cx="75" cy="525" rx="7" ry="2.5" fill="#009030" opacity="0.6"/>
+  <ellipse cx="220" cy="650" rx="20" ry="5" fill="url(#bg-vein-red)" transform="rotate(25 220 650)" opacity="0.75"/>
+  <ellipse cx="235" cy="655" rx="8" ry="3" fill="#880010" opacity="0.6"/>
+  <!-- Left gem vein clusters (small diamond shapes) -->
+  <polygon points="120,300 126,308 120,316 114,308" fill="#1848d8" stroke="#1030b0" stroke-width="0.5" opacity="0.8"/>
+  <polygon points="160,460 165,466 160,472 155,466" fill="#8010c0" stroke="#6008a0" stroke-width="0.5" opacity="0.75"/>
+  <polygon points="90,580 95,586 90,592 85,586" fill="#009838" stroke="#007028" stroke-width="0.5" opacity="0.7"/>
+  <polygon points="260,720 265,727 260,734 255,727" fill="#cc0818" stroke="#aa0010" stroke-width="0.5" opacity="0.65"/>
+
+  <!-- ============ RIGHT ROCK WALL ============ -->
+  <path d="M1920,0 L1540,0 L1580,80 L1540,160 L1600,240 L1560,320 L1620,400 L1580,480 L1640,560 L1600,640 L1660,720 L1620,800 L1920,800 Z"
+    fill="url(#bg-rock-r)" stroke="#181026" stroke-width="2"/>
+  <!-- Strata right -->
+  <path d="M1900,130 C1840,125 1760,133 1720,127 C1680,121 1620,129 1580,124" stroke="#201430" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M1900,260 C1830,255 1750,262 1700,256 C1640,250 1600,258" stroke="#1a1028" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <path d="M1900,400 C1840,395 1760,402 1700,397 C1640,391 1600,398" stroke="#1e0c36" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+  <!-- Gem veins right wall -->
+  <ellipse cx="1840" cy="190" rx="20" ry="5" fill="url(#bg-vein-purple)" transform="rotate(30 1840 190)" opacity="0.85"/>
+  <ellipse cx="1820" cy="200" rx="8" ry="3" fill="#7010b0" opacity="0.65"/>
+  <ellipse cx="1720" cy="360" rx="18" ry="5" fill="url(#bg-vein-blue)" transform="rotate(-20 1720 360)" opacity="0.8"/>
+  <ellipse cx="1840" cy="520" rx="22" ry="6" fill="url(#bg-vein-green)" transform="rotate(15 1840 520)" opacity="0.8"/>
+  <ellipse cx="1720" cy="640" rx="16" ry="5" fill="url(#bg-vein-red)" transform="rotate(-25 1720 640)" opacity="0.75"/>
+  <!-- Right gem clusters -->
+  <polygon points="1800,290 1806,298 1800,306 1794,298" fill="#1848d8" stroke="#1030b0" stroke-width="0.5" opacity="0.8"/>
+  <polygon points="1740,440 1745,447 1740,454 1735,447" fill="#8010c0" stroke="#6008a0" stroke-width="0.5" opacity="0.75"/>
+  <polygon points="1860,580 1865,587 1860,594 1855,587" fill="#009838" stroke="#007028" stroke-width="0.5" opacity="0.7"/>
+
+  <!-- ============ CEILING ============ -->
+  <path d="M0,0 L1920,0 L1920,160 C1600,140 1300,130 960,130 C620,130 320,140 0,160 Z"
+    fill="#0a0518" stroke="#150a28" stroke-width="1"/>
+  <!-- Stalactites -->
+  <polygon points="180,0 195,130 165,130" fill="#12091c" stroke="#1a0e2a" stroke-width="1" opacity="0.8"/>
+  <polygon points="380,0 392,110 368,110" fill="#100818" stroke="#18102a" stroke-width="1" opacity="0.75"/>
+  <polygon points="600,0 614,90 586,90" fill="#120920" stroke="#1a1030" stroke-width="1" opacity="0.8"/>
+  <polygon points="820,0 832,120 808,120" fill="#100818" stroke="#180e28" stroke-width="1" opacity="0.75"/>
+  <polygon points="1100,0 1112,100 1088,100" fill="#120920" stroke="#1a0e2a" stroke-width="1" opacity="0.8"/>
+  <polygon points="1320,0 1334,115 1306,115" fill="#100818" stroke="#180e28" stroke-width="1" opacity="0.75"/>
+  <polygon points="1550,0 1562,95 1538,95" fill="#120920" stroke="#1a0e2a" stroke-width="1" opacity="0.8"/>
+  <polygon points="1740,0 1752,125 1728,125" fill="#100818" stroke="#180e28" stroke-width="1" opacity="0.75"/>
+
+  <!-- ============ FLOOR ============ -->
+  <rect x="0" y="900" width="1920" height="180" fill="url(#bg-floor)"/>
+  <!-- Floor crack lines -->
+  <path d="M200,920 C280,916 360,924 440,918 C520,912 600,922" stroke="#1a1028" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M700,940 C780,935 860,943 940,937 C1020,931 1100,940" stroke="#180e24" stroke-width="1" fill="none" opacity="0.45"/>
+  <path d="M1200,925 C1280,920 1360,928 1440,922 C1520,916 1600,925" stroke="#160c22" stroke-width="1" fill="none" opacity="0.5"/>
+  <!-- Floor gem veins -->
+  <ellipse cx="300" cy="940" rx="40" ry="4" fill="#1030b0" opacity="0.4" transform="rotate(-8 300 940)"/>
+  <ellipse cx="960" cy="950" rx="50" ry="4" fill="#600080" opacity="0.35" transform="rotate(5 960 950)"/>
+  <ellipse cx="1600" cy="935" rx="42" ry="4" fill="#008028" opacity="0.35" transform="rotate(-5 1600 935)"/>
+
+  <!-- ============ ATMOSPHERIC DEPTH FOG ============ -->
+  <rect width="1920" height="1080" fill="url(#bg-fog)"/>
+
+  <!-- Floating dust/gem particles (subtle ambient) -->
+  <circle cx="240" cy="280" r="1.5" fill="#4060ff" opacity="0.5"/>
+  <circle cx="480" cy="180" r="1" fill="#8828dd" opacity="0.45"/>
+  <circle cx="720" cy="340" r="1.5" fill="#00cc48" opacity="0.4"/>
+  <circle cx="960" cy="220" r="1" fill="#cc1020" opacity="0.4"/>
+  <circle cx="1200" cy="300" r="1.5" fill="#4060ff" opacity="0.45"/>
+  <circle cx="1440" cy="180" r="1" fill="#9920cc" opacity="0.45"/>
+  <circle cx="1680" cy="320" r="1.5" fill="#00aa40" opacity="0.4"/>
+  <circle cx="360" cy="600" r="1" fill="#6040ff" opacity="0.35"/>
+  <circle cx="840" cy="700" r="1.5" fill="#cc0820" opacity="0.35"/>
+  <circle cx="1560" cy="680" r="1" fill="#7020b0" opacity="0.35"/>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-sap-core" cx="40%" cy="35%" r="62%">
+      <stop offset="0%" stop-color="#a0c8ff" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#2060e8" stop-opacity="1"/>
+      <stop offset="65%" stop-color="#0030a0" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#001058" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="dg-sap-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4080ff" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#001080" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dg-sap-facet-a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6090f8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#001880" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Glow -->
+  <ellipse cx="100" cy="100" rx="86" ry="86" fill="url(#dg-sap-glow)" opacity="0.5"/>
+
+  <!-- Cushion/round cut sapphire -->
+  <!-- Main body - cushion silhouette -->
+  <path d="M100,22 C128,22 160,42 168,70 C176,98 168,136 148,158 C128,180 72,180 52,158 C32,136 24,98 32,70 C40,42 72,22 100,22 Z"
+    fill="url(#dg-sap-core)" stroke="#2040c0" stroke-width="1.5"/>
+
+  <!-- Crown facets (star pattern from center) -->
+  <!-- Top facet -->
+  <path d="M100,22 L118,55 L100,62 L82,55 Z" fill="#7098f8" stroke="#3060e0" stroke-width="0.5" opacity="0.8"/>
+  <!-- Upper right -->
+  <path d="M100,22 C128,22 160,42 168,70 L136,72 L118,55 Z" fill="url(#dg-sap-facet-a)" stroke="#2050d0" stroke-width="0.5" opacity="0.7"/>
+  <!-- Upper left -->
+  <path d="M100,22 C72,22 40,42 32,70 L64,72 L82,55 Z" fill="#8090f0" stroke="#3060d0" stroke-width="0.5" opacity="0.7"/>
+  <!-- Right facet -->
+  <path d="M168,70 C176,98 168,136 148,158 L128,130 L136,72 Z" fill="#1030b8" stroke="#1040c0" stroke-width="0.5" opacity="0.8"/>
+  <!-- Left facet -->
+  <path d="M32,70 C24,98 32,136 52,158 L72,130 L64,72 Z" fill="#2040c8" stroke="#1040c0" stroke-width="0.5" opacity="0.8"/>
+  <!-- Lower right -->
+  <path d="M148,158 C128,180 72,180 52,158 L72,130 L100,138 L128,130 Z" fill="#0020a0" stroke="#001880" stroke-width="0.5" opacity="0.85"/>
+
+  <!-- Inner star kite facets -->
+  <path d="M100,62 L136,72 L128,130 L100,138 L72,130 L64,72 Z" fill="#1848d0" stroke="#1038b8" stroke-width="0.8" opacity="0.7"/>
+  <!-- Center table -->
+  <ellipse cx="100" cy="100" rx="28" ry="28" fill="#2050e0" stroke="#1038c0" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Highlights -->
+  <ellipse cx="88" cy="70" rx="18" ry="7" fill="white" opacity="0.35" transform="rotate(-20 88 70)"/>
+  <ellipse cx="80" cy="60" rx="7" ry="3.5" fill="white" opacity="0.6"/>
+  <ellipse cx="100" cy="50" rx="5" ry="2" fill="white" opacity="0.5"/>
+</svg>

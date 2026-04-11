@@ -1,0 +1,30 @@
+{
+  "name": "dark-gems",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "pixi.js": "^8.6.6",
+    "svelte": "^5.28.2",
+    "xstate": "^5.19.4"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@storybook/svelte-vite": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "storybook": "^8.6.14",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  }
+}

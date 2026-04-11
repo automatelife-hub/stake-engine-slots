@@ -1,0 +1,273 @@
+/**
+ * Dark Gems — Symbol Animation System
+ * Covers: idle shimmer, win burst, free spin intro, reel anticipation
+ *
+ * Usage:
+ *   <div class="dg-symbol dg-symbol--diamond dg-anim--idle">…</div>
+ *   On win: add class "dg-anim--win-burst" (remove after 1.2s)
+ *   Free spin entry: add class "dg-anim--freespin-intro" to wrapper
+ */
+
+/* ============================================================
+   BASE SYMBOL WRAPPER
+   ============================================================ */
+.dg-symbol {
+  display: inline-block;
+  position: relative;
+  image-rendering: crisp-edges;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+}
+
+/* ============================================================
+   IDLE SHIMMER — subtle breathing glow on each symbol
+   Each gem color has its own glow hue
+   ============================================================ */
+@keyframes dg-idle-shimmer {
+  0%   { filter: brightness(1)   drop-shadow(0 0  4px var(--dg-glow-color, #8840ff)); }
+  40%  { filter: brightness(1.12) drop-shadow(0 0 10px var(--dg-glow-color, #8840ff)); }
+  60%  { filter: brightness(1.10) drop-shadow(0 0  8px var(--dg-glow-color, #8840ff)); }
+  100% { filter: brightness(1)   drop-shadow(0 0  4px var(--dg-glow-color, #8840ff)); }
+}
+
+@keyframes dg-idle-pulse {
+  0%   { transform: scale(1.000); }
+  50%  { transform: scale(1.018); }
+  100% { transform: scale(1.000); }
+}
+
+.dg-anim--idle {
+  animation:
+    dg-idle-shimmer 3.2s ease-in-out infinite,
+    dg-idle-pulse   3.2s ease-in-out infinite;
+}
+
+/* Per-symbol glow color overrides */
+.dg-symbol--diamond { --dg-glow-color: #60c8ff; }
+.dg-symbol--ruby    { --dg-glow-color: #ff2244; }
+.dg-symbol--emerald { --dg-glow-color: #00ff70; }
+.dg-symbol--sapphire{ --dg-glow-color: #4488ff; }
+.dg-symbol--amethyst{ --dg-glow-color: #cc44ff; }
+.dg-symbol--topaz   { --dg-glow-color: #ffaa00; }
+.dg-symbol--wild    { --dg-glow-color: #ffdd00; }
+.dg-symbol--scatter { --dg-glow-color: #ffffff; }
+.dg-symbol--ace     { --dg-glow-color: #9928dd; }
+.dg-symbol--king    { --dg-glow-color: #cc8820; }
+
+/* Stagger idle animations so symbols don't pulse in sync */
+.dg-symbol:nth-child(1)  { animation-delay: 0.00s; }
+.dg-symbol:nth-child(2)  { animation-delay: 0.32s; }
+.dg-symbol:nth-child(3)  { animation-delay: 0.64s; }
+.dg-symbol:nth-child(4)  { animation-delay: 0.96s; }
+.dg-symbol:nth-child(5)  { animation-delay: 1.28s; }
+.dg-symbol:nth-child(6)  { animation-delay: 1.60s; }
+.dg-symbol:nth-child(7)  { animation-delay: 1.92s; }
+.dg-symbol:nth-child(8)  { animation-delay: 2.24s; }
+.dg-symbol:nth-child(9)  { animation-delay: 2.56s; }
+.dg-symbol:nth-child(10) { animation-delay: 2.88s; }
+.dg-symbol:nth-child(11) { animation-delay: 3.20s; }
+.dg-symbol:nth-child(12) { animation-delay: 3.52s; }
+.dg-symbol:nth-child(13) { animation-delay: 3.84s; }
+.dg-symbol:nth-child(14) { animation-delay: 4.16s; }
+.dg-symbol:nth-child(15) { animation-delay: 4.48s; }
+
+/* ============================================================
+   WIN BURST — gem explodes with light, then settles
+   Apply .dg-anim--win-burst for 1.2s, then remove
+   ============================================================ */
+@keyframes dg-win-burst-scale {
+  0%   { transform: scale(1);    }
+  15%  { transform: scale(1.35); }
+  30%  { transform: scale(1.28); }
+  55%  { transform: scale(1.22); }
+  80%  { transform: scale(1.10); }
+  100% { transform: scale(1);    }
+}
+
+@keyframes dg-win-burst-glow {
+  0%   { filter: brightness(1)    drop-shadow(0 0  6px var(--dg-glow-color, #8840ff)); }
+  15%  { filter: brightness(2.2)  drop-shadow(0 0 30px var(--dg-glow-color, #8840ff))
+                                   drop-shadow(0 0 14px #ffffff); }
+  35%  { filter: brightness(1.8)  drop-shadow(0 0 20px var(--dg-glow-color, #8840ff)); }
+  70%  { filter: brightness(1.3)  drop-shadow(0 0 12px var(--dg-glow-color, #8840ff)); }
+  100% { filter: brightness(1)    drop-shadow(0 0  6px var(--dg-glow-color, #8840ff)); }
+}
+
+/* Ring flash overlay element — place a sibling .dg-win-ring for the particle ring */
+@keyframes dg-win-ring-expand {
+  0%   { transform: scale(0.3); opacity: 1; }
+  60%  { transform: scale(2.0); opacity: 0.6; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
+
+.dg-anim--win-burst {
+  animation:
+    dg-win-burst-scale 1.2s cubic-bezier(0.36,1.56,0.64,1) forwards,
+    dg-win-burst-glow  1.2s ease-out forwards;
+}
+
+.dg-win-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid var(--dg-glow-color, #8840ff);
+  pointer-events: none;
+  animation: dg-win-ring-expand 0.9s ease-out forwards;
+}
+
+/* ============================================================
+   PAYLINE HIGHLIGHT — dims non-winning symbols during win display
+   ============================================================ */
+@keyframes dg-dim-pulse {
+  0%   { opacity: 1;    filter: brightness(1); }
+  50%  { opacity: 0.35; filter: brightness(0.5); }
+  100% { opacity: 1;    filter: brightness(1); }
+}
+
+.dg-anim--dimmed {
+  animation: dg-dim-pulse 1.4s ease-in-out infinite;
+}
+
+/* ============================================================
+   REEL SPIN — fast vertical scroll effect
+   Applied to reel content while spinning
+   ============================================================ */
+@keyframes dg-reel-spin {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-600px); }  /* 3 symbol heights × 200px */
+}
+
+.dg-reel--spinning .dg-reel-strip {
+  animation: dg-reel-spin 0.08s linear infinite;
+  /* JS overrides duration per reel for the staggered stop effect */
+}
+
+/* Anticipation flash on reel 3 during scatter locks */
+@keyframes dg-anticipation-flash {
+  0%   { box-shadow: inset 0 0  0px rgba(255,220,0,0); }
+  50%  { box-shadow: inset 0 0 20px rgba(255,220,0,0.5); }
+  100% { box-shadow: inset 0 0  0px rgba(255,220,0,0); }
+}
+
+.dg-reel--anticipate {
+  animation: dg-anticipation-flash 0.6s ease-in-out infinite;
+}
+
+/* ============================================================
+   FREE SPIN INTRO — full-screen gem cascade reveal
+   Wrap the whole game canvas with .dg-freespin-intro-wrap
+   ============================================================ */
+@keyframes dg-freespin-overlay-in {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes dg-freespin-gem-fall {
+  0%   { transform: translateY(-120px) rotate(0deg)   scale(0.4); opacity: 0; }
+  20%  { opacity: 1; }
+  70%  { transform: translateY(140px)  rotate(360deg) scale(1);   opacity: 1; }
+  100% { transform: translateY(220px)  rotate(440deg) scale(0.8); opacity: 0; }
+}
+
+@keyframes dg-freespin-title-in {
+  0%   { transform: scale(0.5) translateY(30px); opacity: 0; filter: blur(8px); }
+  50%  { transform: scale(1.1) translateY(-6px); opacity: 1; filter: blur(0);   }
+  70%  { transform: scale(1.05) translateY(2px); }
+  100% { transform: scale(1)   translateY(0);   opacity: 1; filter: blur(0); }
+}
+
+.dg-freespin-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, #1a0040 0%, #08000f 60%, #020008 100%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: dg-freespin-overlay-in 3.5s ease-in-out forwards;
+  pointer-events: none;
+}
+
+.dg-freespin-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(32px, 6vw, 72px);
+  font-weight: bold;
+  color: #e8c0ff;
+  text-shadow:
+    0 0 20px #9930dd,
+    0 0  8px #cc66ff,
+    0 2px 4px rgba(0,0,0,0.8);
+  letter-spacing: 6px;
+  animation: dg-freespin-title-in 1.2s cubic-bezier(0.36,1.56,0.64,1) 0.6s both;
+}
+
+.dg-freespin-subtitle {
+  font-family: "Arial Black", Impact, sans-serif;
+  font-size: clamp(16px, 3vw, 36px);
+  color: #ffd840;
+  text-shadow: 0 0 14px #ff8800, 0 0 6px #ffcc00;
+  letter-spacing: 4px;
+  margin-top: 12px;
+  animation: dg-freespin-title-in 1.2s cubic-bezier(0.36,1.56,0.64,1) 1.0s both;
+}
+
+/* Cascade gem particles during free spin intro */
+.dg-freespin-gem-particle {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  animation: dg-freespin-gem-fall 2.0s ease-in forwards;
+}
+
+/* ============================================================
+   WIN AMOUNT COUNTER — counting up animation
+   ============================================================ */
+@keyframes dg-win-count-pop {
+  0%   { transform: scale(0.8); opacity: 0.6; }
+  40%  { transform: scale(1.15); opacity: 1; }
+  70%  { transform: scale(0.98); }
+  100% { transform: scale(1);    opacity: 1; }
+}
+
+.dg-win-display {
+  animation: dg-win-count-pop 0.5s cubic-bezier(0.36,1.56,0.64,1) forwards;
+}
+
+/* ============================================================
+   SCATTER ANTICIPATION LOCK — reels 1-2 locked with pulse
+   ============================================================ */
+@keyframes dg-scatter-lock-glow {
+  0%   { filter: drop-shadow(0 0  6px #ffffff44); }
+  50%  { filter: drop-shadow(0 0 18px #ffee88cc) drop-shadow(0 0 8px #ffffff88); }
+  100% { filter: drop-shadow(0 0  6px #ffffff44); }
+}
+
+.dg-symbol--scatter.dg-anim--anticipating {
+  animation: dg-scatter-lock-glow 0.7s ease-in-out infinite;
+}
+
+/* ============================================================
+   WILD SPIN — wild symbol rotates slightly when idle
+   ============================================================ */
+@keyframes dg-wild-idle-spin {
+  0%   { transform: scale(1) rotate(-4deg); filter: brightness(1)    drop-shadow(0 0  8px #ffdd00); }
+  25%  { transform: scale(1.02) rotate(0deg); }
+  50%  { transform: scale(1) rotate(4deg);  filter: brightness(1.15) drop-shadow(0 0 14px #ffdd00); }
+  75%  { transform: scale(1.02) rotate(0deg); }
+  100% { transform: scale(1) rotate(-4deg); filter: brightness(1)    drop-shadow(0 0  8px #ffdd00); }
+}
+
+.dg-symbol--wild.dg-anim--idle {
+  animation: dg-wild-idle-spin 2.8s ease-in-out infinite;
+}
+
+/* ============================================================
+   UTILITY — no animation (during reel spin, suppress idle)
+   ============================================================ */
+.dg-anim--none {
+  animation: none !important;
+  filter: none !important;
+}

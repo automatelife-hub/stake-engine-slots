@@ -1,0 +1,158 @@
+{
+  "$schema": "https://engine.stake.com/schemas/asset-manifest/v1",
+  "gameId": "dark-gems",
+  "version": "1.0.0",
+  "format": "svg",
+  "atlasStrategy": "individual-svg",
+  "note": "SVG assets are the source of truth. For Stake Engine web-sdk pipeline, these can be rasterised to PNG sprite sheets at 2x (400×400) per symbol, or served as inline SVG for CSS animation compatibility.",
+  "symbols": {
+    "count": 10,
+    "size": { "width": 200, "height": 200 },
+    "items": [
+      {
+        "id": "W",
+        "name": "Wild",
+        "file": "symbols/wild.svg",
+        "tier": "special",
+        "animClass": "dg-symbol--wild",
+        "glowColor": "#ffdd00"
+      },
+      {
+        "id": "S",
+        "name": "Scatter",
+        "file": "symbols/scatter.svg",
+        "tier": "special",
+        "animClass": "dg-symbol--scatter",
+        "glowColor": "#ffffff",
+        "note": "Scatter triggers free spins only — does not pay on lines"
+      },
+      {
+        "id": "H1",
+        "name": "Diamond",
+        "file": "symbols/diamond.svg",
+        "tier": "high",
+        "pays": { "3x": 5, "4x": 20, "5x": 50 },
+        "animClass": "dg-symbol--diamond",
+        "glowColor": "#60c8ff"
+      },
+      {
+        "id": "H2",
+        "name": "Ruby",
+        "file": "symbols/ruby.svg",
+        "tier": "high",
+        "pays": { "3x": 3, "4x": 10, "5x": 30 },
+        "animClass": "dg-symbol--ruby",
+        "glowColor": "#ff2244"
+      },
+      {
+        "id": "H3",
+        "name": "Emerald",
+        "file": "symbols/emerald.svg",
+        "tier": "high",
+        "pays": { "3x": 2, "4x": 6, "5x": 20 },
+        "animClass": "dg-symbol--emerald",
+        "glowColor": "#00ff70"
+      },
+      {
+        "id": "H4",
+        "name": "Sapphire",
+        "file": "symbols/sapphire.svg",
+        "tier": "high",
+        "pays": { "3x": 1.5, "4x": 4, "5x": 12 },
+        "animClass": "dg-symbol--sapphire",
+        "glowColor": "#4488ff"
+      },
+      {
+        "id": "L1",
+        "name": "Amethyst",
+        "file": "symbols/amethyst.svg",
+        "tier": "low",
+        "pays": { "3x": 0.8, "4x": 2, "5x": 8 },
+        "animClass": "dg-symbol--amethyst",
+        "glowColor": "#cc44ff"
+      },
+      {
+        "id": "L2",
+        "name": "Topaz",
+        "file": "symbols/topaz.svg",
+        "tier": "low",
+        "pays": { "3x": 0.5, "4x": 1.5, "5x": 5 },
+        "animClass": "dg-symbol--topaz",
+        "glowColor": "#ffaa00"
+      },
+      {
+        "id": "L3",
+        "name": "Ace",
+        "file": "symbols/ace.svg",
+        "tier": "low",
+        "pays": { "3x": 0.3, "4x": 1.0, "5x": 3 },
+        "animClass": "dg-symbol--ace",
+        "glowColor": "#9928dd"
+      },
+      {
+        "id": "L4",
+        "name": "King",
+        "file": "symbols/king.svg",
+        "tier": "low",
+        "pays": { "3x": 0.2, "4x": 0.7, "5x": 2 },
+        "animClass": "dg-symbol--king",
+        "glowColor": "#cc8820"
+      }
+    ]
+  },
+  "ui": {
+    "background": {
+      "file": "ui/background.svg",
+      "size": { "width": 1920, "height": 1080 }
+    },
+    "reelFrame": {
+      "file": "ui/reel-frame.svg",
+      "size": { "width": 900, "height": 660 },
+      "viewport": { "x": 80, "y": 80, "width": 740, "height": 500 },
+      "reelWidth": 148,
+      "rowHeight": 167,
+      "dividerX": [228, 376, 524, 672]
+    },
+    "winDisplay": {
+      "file": "ui/win-display.svg",
+      "size": { "width": 400, "height": 120 }
+    },
+    "freeSpinsCounter": {
+      "file": "ui/free-spins-counter.svg",
+      "size": { "width": 260, "height": 140 }
+    },
+    "multiplierBadge": {
+      "file": "ui/multiplier-badge.svg",
+      "size": { "width": 100, "height": 100 }
+    }
+  },
+  "animations": {
+    "stylesheet": "animations/gem-animations.css",
+    "classes": {
+      "idleShimmer": "dg-anim--idle",
+      "winBurst": "dg-anim--win-burst",
+      "dimmed": "dg-anim--dimmed",
+      "reelSpinning": "dg-reel--spinning",
+      "anticipation": "dg-reel--anticipate",
+      "scatterAnticipating": "dg-anim--anticipating",
+      "noAnimation": "dg-anim--none"
+    },
+    "durations": {
+      "winBurst": 1200,
+      "winRingExpand": 900,
+      "freespinIntroTotal": 3500,
+      "anticipationFlash": 600
+    }
+  },
+  "webSdkIntegration": {
+    "atlasBasePath": "assets/",
+    "symbolIdMapping": {
+      "W": "wild", "S": "scatter",
+      "H1": "diamond", "H2": "ruby", "H3": "emerald", "H4": "sapphire",
+      "L1": "amethyst", "L2": "topaz", "L3": "ace", "L4": "king"
+    },
+    "svgInlineSupport": true,
+    "fallbackPngSpriteSheet": "atlas/dark-gems-symbols@2x.png",
+    "fallbackPngAtlas": "atlas/dark-gems-symbols@2x.json"
+  }
+}

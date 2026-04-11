@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-tz-core" cx="42%" cy="36%" r="62%">
+      <stop offset="0%" stop-color="#fff080" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#ffb820" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#e07000" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#803000" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="dg-tz-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffa820" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#804000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dg-tz-facet-a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffc840" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#804010" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Glow -->
+  <ellipse cx="100" cy="100" rx="84" ry="84" fill="url(#dg-tz-glow)" opacity="0.5"/>
+
+  <!-- Cushion / asscher-style cut topaz -->
+  <!-- Outer shape -->
+  <polygon points="72,24 128,24 166,62 166,138 128,176 72,176 34,138 34,62"
+    fill="url(#dg-tz-core)" stroke="#d08000" stroke-width="1.5"/>
+
+  <!-- Step 1 ring -->
+  <polygon points="80,36 120,36 152,68 152,132 120,164 80,164 48,132 48,68"
+    fill="url(#dg-tz-facet-a)" stroke="#b86800" stroke-width="0.8" opacity="0.7"/>
+
+  <!-- Step 2 ring (inner table) -->
+  <polygon points="88,50 112,50 138,76 138,124 112,150 88,150 62,124 62,76"
+    fill="#e89010" stroke="#c07000" stroke-width="0.6" opacity="0.6"/>
+
+  <!-- Inner core -->
+  <polygon points="96,64 104,64 122,82 122,118 104,136 96,136 78,118 78,82"
+    fill="#d08020" stroke="#a05000" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Crown corner facets -->
+  <polygon points="72,24 80,36 48,68 34,62" fill="#ffd840" stroke="#e0a000" stroke-width="0.5" opacity="0.75"/>
+  <polygon points="128,24 120,36 152,68 166,62" fill="#e8b820" stroke="#c08000" stroke-width="0.5" opacity="0.65"/>
+  <polygon points="72,176 80,164 48,132 34,138" fill="#803800" stroke="#602400" stroke-width="0.5" opacity="0.8"/>
+  <polygon points="128,176 120,164 152,132 166,138" fill="#703000" stroke="#502000" stroke-width="0.5" opacity="0.8"/>
+
+  <!-- Top/bottom bands -->
+  <polygon points="72,24 128,24 120,36 80,36" fill="#ffe060" stroke="#e0c000" stroke-width="0.5" opacity="0.7"/>
+  <polygon points="72,176 128,176 120,164 80,164" fill="#602800" stroke="#401800" stroke-width="0.5" opacity="0.7"/>
+
+  <!-- Specular -->
+  <ellipse cx="90" cy="58" rx="18" ry="7" fill="white" opacity="0.4" transform="rotate(-10 90 58)"/>
+  <ellipse cx="82" cy="48" rx="7" ry="3" fill="white" opacity="0.65"/>
+  <ellipse cx="100" cy="42" rx="5" ry="2" fill="white" opacity="0.5"/>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="dg-diamond-core" cx="45%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="30%" stop-color="#c8f0ff" stop-opacity="1"/>
+      <stop offset="65%" stop-color="#60c8ff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0070b8" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="dg-diamond-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#88ddff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0044aa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dg-diamond-bloom">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="dg-diamond-facet-a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f8ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#004488" stop-opacity="0.7"/>
+    </linearGradient>
+    <linearGradient id="dg-diamond-facet-b" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0066cc" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer glow -->
+  <ellipse cx="100" cy="100" rx="88" ry="88" fill="url(#dg-diamond-glow)" opacity="0.5"/>
+
+  <!-- Diamond brilliant-cut silhouette (top half = crown, bottom half = pavilion) -->
+  <!-- Table (top flat face) -->
+  <polygon points="100,20 148,58 52,58" fill="url(#dg-diamond-facet-b)" stroke="#a8e0ff" stroke-width="0.8"/>
+  <!-- Crown upper-left -->
+  <polygon points="100,20 52,58 68,58 76,38" fill="#daf4ff" stroke="#88ccee" stroke-width="0.5" opacity="0.85"/>
+  <!-- Crown upper-right -->
+  <polygon points="100,20 148,58 132,58 124,38" fill="url(#dg-diamond-facet-a)" stroke="#88ccee" stroke-width="0.5" opacity="0.85"/>
+  <!-- Crown left star -->
+  <polygon points="52,58 68,58 60,76 36,76" fill="#b0d8f8" stroke="#78bde0" stroke-width="0.5"/>
+  <!-- Crown right star -->
+  <polygon points="148,58 132,58 140,76 164,76" fill="#90c4f0" stroke="#78bde0" stroke-width="0.5"/>
+  <!-- Crown mid-left -->
+  <polygon points="68,58 100,58 88,76 60,76" fill="url(#dg-diamond-core)" stroke="#88d8ff" stroke-width="0.5"/>
+  <!-- Crown mid-right -->
+  <polygon points="132,58 100,58 112,76 140,76" fill="#78b8e8" stroke="#88d8ff" stroke-width="0.5" opacity="0.9"/>
+  <!-- Girdle belt -->
+  <polygon points="36,76 60,76 88,76 100,76 112,76 140,76 164,76 164,84 36,84" fill="#c4e8ff" stroke="#60a8d0" stroke-width="0.5" opacity="0.7"/>
+  <!-- Pavilion facets -->
+  <polygon points="36,80 60,76 76,136 60,150" fill="#0058a8" stroke="#004090" stroke-width="0.5" opacity="0.9"/>
+  <polygon points="60,76 100,76 88,148 60,150" fill="#0070c8" stroke="#0050a0" stroke-width="0.5" opacity="0.9"/>
+  <polygon points="100,76 140,76 112,148 88,148" fill="#0088e0" stroke="#0060b0" stroke-width="0.5" opacity="0.9"/>
+  <polygon points="140,76 164,80 140,150 112,148" fill="#0058a8" stroke="#004090" stroke-width="0.5" opacity="0.9"/>
+  <!-- Culet (tip) -->
+  <polygon points="60,150 88,148 100,178 76,162" fill="#003880" stroke="#002860" stroke-width="0.5"/>
+  <polygon points="112,148 140,150 124,162 100,178" fill="#002870" stroke="#001860" stroke-width="0.5"/>
+  <polygon points="76,162 100,178 124,162 112,148 88,148" fill="#001860" stroke="#001050" stroke-width="0.5"/>
+
+  <!-- Specular highlights -->
+  <polygon points="100,20 115,45 100,52 85,45" fill="white" opacity="0.6"/>
+  <polygon points="68,58 85,58 80,72 68,68" fill="white" opacity="0.45"/>
+  <ellipse cx="88" cy="36" rx="6" ry="3" fill="white" opacity="0.7" transform="rotate(-20 88 36)"/>
+</svg>
